@@ -1,8 +1,39 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.Random;
+
+import javafx.scene.control.Button;
+
 public class GameController {
+	public static boolean myTurn;
+	public static String gameMode;
 	public static String key;
 	private static String[] buttonText;
+	
+	public static String playController(ArrayList<Button> buttonsList, String[][] ticTacToeTable) {
+		switch (gameMode) {
+		case "easyGame":{
+			easyGameLogic(buttonsList);
+			return "X";
+		}
+		case "hardGame":{
+			return "X";
+		}
+		case "twoPlayers": {
+			if(myTurn) {
+				myTurn = !myTurn;
+				return "X";	
+			}else {
+				myTurn = !myTurn;
+				return "O";	
+			}
+		}
+		default :{
+			return null;
+		}
+		}
+	}
 	
 	public static boolean winningChecker(String[][] ticTacToeTable) {
 		buttonText = new String[3];
@@ -73,10 +104,15 @@ public class GameController {
 		for (int i = 0; i < buttonText.length; i++) {
 			int j = buttonText.length - 1 - i;
 			buttonText[i] = ticTacToeTable[i][j];
-			if(GameController.checkVictory(buttonText)) {
+			if(checkVictory(buttonText)) {
 				key = "secundary diagonal";
 				return true;
 			}
+		}
+		//draw
+		if(checkDraw(ticTacToeTable)) {
+			key = "draw";
+			return true;
 		}
 		return false;
 	}
@@ -90,5 +126,37 @@ public class GameController {
 		}else {
 			return false;
 		}
+	}
+	
+	public static boolean checkDraw(String[][] ticTacToeTable) {
+		for (int i = 0; i < ticTacToeTable.length; i++) {
+			for (int j = 0; j < ticTacToeTable[0].length; j++) {
+				if(ticTacToeTable[i][j] == "") {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	private static void easyGameLogic(ArrayList<Button> buttonsList) {
+		Random randomMove = new Random();
+		int temp;
+		while(checkFreeButton(buttonsList)) {
+			temp = randomMove.nextInt(9);
+			if(buttonsList.get(temp).getText() == "") {
+				buttonsList.get(temp).setText("O");
+				break;
+			}
+		}
+	}
+
+	private static boolean checkFreeButton(ArrayList<Button> buttonsList) {
+		for (int i = 0; i < buttonsList.size(); i++) {
+			if(buttonsList.get(i).getText() == "") {
+				return true;
+			}
+		}
+		return false;
 	}
 }
