@@ -27,10 +27,11 @@ public class FXMLMainScreenController implements Initializable{
 	
 	@FXML
 	void onePlayerButtonEvent(ActionEvent event) {
-		Main.changeScreen("FXMLGameScreen");
+		Main.changeScreen("FXMLDifficultyMenu");
 	}
 	@FXML
 	void twoPlayerButtonEvent(ActionEvent event) {
+		GameController.gameMode = "twoPlayers";
 		Main.changeScreen("FXMLGameScreen");
 	}
 	@FXML
