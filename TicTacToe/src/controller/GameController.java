@@ -9,15 +9,20 @@ public class GameController {
 	public static boolean myTurn;
 	public static String gameMode;
 	public static String key;
+	public static String winner;
 	private static String[] buttonText;
+	
 	
 	public static String playController(ArrayList<Button> buttonsList, String[][] ticTacToeTable) {
 		switch (gameMode) {
 		case "easyGame":{
+			//bug
 			easyGameLogic(buttonsList);
 			return "X";
 		}
 		case "hardGame":{
+			//bug
+			hardGameLogic(buttonsList);
 			return "X";
 		}
 		case "twoPlayers": {
@@ -119,9 +124,11 @@ public class GameController {
 	
 	public static boolean checkVictory(String[] vector) {
 		if(vector[0] == "X" && vector[1] == "X" && vector[2] == "X") {
+			winner = "X";
 			return true;
 			
 		} else if(vector[0] == "O" && vector[1] == "O" && vector[2] == "O") {
+			winner = "O";
 			return true;
 		}else {
 			return false;
@@ -140,6 +147,18 @@ public class GameController {
 	}
 	
 	private static void easyGameLogic(ArrayList<Button> buttonsList) {
+		Random randomMove = new Random();
+		int temp;
+		while(checkFreeButton(buttonsList)) {
+			temp = randomMove.nextInt(9);
+			if(buttonsList.get(temp).getText() == "") {
+				buttonsList.get(temp).setText("O");
+				break;
+			}
+		}
+	}
+	
+	private static void hardGameLogic(ArrayList<Button> buttonsList) {
 		Random randomMove = new Random();
 		int temp;
 		while(checkFreeButton(buttonsList)) {
