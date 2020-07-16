@@ -11,7 +11,6 @@ public class Main extends Application{
 	private static Stage stage;
 	private static Scene FXMLMainScreen;
 	private static Scene FXMLGameScreen;
-	private static Scene FXMLDifficultyMenu;
 
 	@Override
 	public void start(Stage currentStage) throws Exception {
@@ -21,9 +20,6 @@ public class Main extends Application{
 		
 		Parent fxmlGameScreen = FXMLLoader.load(getClass().getResource("/view/FXMLGameScreen.fxml"));
 		FXMLGameScreen = new Scene(fxmlGameScreen);
-		
-		Parent fxmlDifficultyMenu = FXMLLoader.load(getClass().getResource("/view/FXMLDifficultyMenu.fxml"));
-		FXMLDifficultyMenu = new Scene(fxmlDifficultyMenu);
 		
 		currentStage.setTitle("Tic Tac Toe");
 		currentStage.setScene(FXMLMainScreen);
@@ -40,15 +36,10 @@ public class Main extends Application{
 			stage.setScene(FXMLGameScreen);
 			break;
 		}
-		case "FXMLDifficultyMenu":{
-			stage.setScene(FXMLDifficultyMenu);
-			break;
-		}
 		}
 	}
 	
 	public static void main(String[] args) {
 		launch(args);
-
 	}
 }
