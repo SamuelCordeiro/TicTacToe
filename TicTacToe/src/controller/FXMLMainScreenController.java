@@ -2,7 +2,6 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,7 +26,8 @@ public class FXMLMainScreenController implements Initializable{
 	
 	@FXML
 	void onePlayerButtonEvent(ActionEvent event) {
-		Main.changeScreen("FXMLDifficultyMenu");
+		GameController.gameMode = "easyGame";
+    	Main.changeScreen("FXMLGameScreen");
 	}
 	@FXML
 	void twoPlayerButtonEvent(ActionEvent event) {
