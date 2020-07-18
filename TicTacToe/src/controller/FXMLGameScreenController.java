@@ -24,140 +24,54 @@ public class FXMLGameScreenController implements Initializable{
 		loadGame();
 	}
 
-	@FXML
-	void button00Event(ActionEvent event) {
-		if(button00.getText() == "") {
-			if(GameController.gameMode == "twoPlayers") {
-				button00.setText(GameController.playController(buttonsList, ticTacToeTable));
-			}else {
-				button00.setText("X");
-				if(updateGame()) {
-					GameController.playController(buttonsList, ticTacToeTable);
-				}
-			}
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == button00) {
+			move(button00);
+		}
+		if(e.getSource() == button01) {
+			move(button01);
+		}
+		if(e.getSource() == button02) {
+			move(button02);
+		}
+		if(e.getSource() == button10) {
+			move(button10);
+		}
+		if(e.getSource() == button11) {
+			move(button11);
+		}
+		if(e.getSource() == button12) {
+			move(button12);
+		}
+		if(e.getSource() == button20) {
+			move(button20);
+		}
+		if(e.getSource() == button21) {
+			move(button21);
+		}
+		if(e.getSource() == button22) {
+			move(button22);
+		}
+		if(e.getSource() == restartButton) {
+			Main.changeScreen("FXMLGameScreen");
+			loadGame();
 		}
 	}
-
-	@FXML
-	void button01Event(ActionEvent event) {
-		if(button01.getText() == "") {
+	
+	private void move(Button button) {
+		if(button.getText() == "") {
 			if(GameController.gameMode == "twoPlayers") {
-				button01.setText(GameController.playController(buttonsList, ticTacToeTable));
-			}else {
-				button01.setText("X");
-				if(updateGame()) {
-					GameController.playController(buttonsList, ticTacToeTable);
-				}
-			}
-		}
-	}
-
-	@FXML
-	void button02Event(ActionEvent event) {
-		if(button02.getText() == "") {
-			if(GameController.gameMode == "twoPlayers") {
-				button02.setText(GameController.playController(buttonsList, ticTacToeTable));
-			}else {
-				button02.setText("X");
-				if(updateGame()) {
-					GameController.playController(buttonsList, ticTacToeTable);
-				}
-			}
-		}
-	}
-
-	@FXML
-	void button10Event(ActionEvent event) {
-		if(button10.getText() == "") {
-			if(GameController.gameMode == "twoPlayers") {
-				button10.setText(GameController.playController(buttonsList, ticTacToeTable));
-			}else {
-				button10.setText("X");
-				if(updateGame()) {
-					GameController.playController(buttonsList, ticTacToeTable);
-				}
-			}
-		}
-	}
-
-	@FXML
-	void button11Event(ActionEvent event) {
-		if(button11.getText() == "") {
-			if(GameController.gameMode == "twoPlayers") {
-				button11.setText(GameController.playController(buttonsList, ticTacToeTable));
-			}else {
-				button11.setText("X");
-				if(updateGame()) {
-					GameController.playController(buttonsList, ticTacToeTable);
-				}
-			}
-		}
-	}
-
-	@FXML
-	void button12Event(ActionEvent event) {
-		if(button12.getText() == "") {
-			if(GameController.gameMode == "twoPlayers") {
-				button12.setText(GameController.playController(buttonsList, ticTacToeTable));
-			}else {
-				button12.setText("X");
-				if(updateGame()) {
-					GameController.playController(buttonsList, ticTacToeTable);
-				}
-			}
-		}
-	}
-
-	@FXML
-	void button20Event(ActionEvent event) {
-		if(button20.getText() == "") {
-			if(GameController.gameMode == "twoPlayers") {
-				button20.setText(GameController.playController(buttonsList, ticTacToeTable));
-			}else {
-				button20.setText("X");
-				if(updateGame()) {
-					GameController.playController(buttonsList, ticTacToeTable);
-				}
-			}
-		}
-	}
-
-	@FXML
-	void button21Event(ActionEvent event) {
-		if(button21.getText() == "") {
-			if(GameController.gameMode == "twoPlayers") {
-				button21.setText(GameController.playController(buttonsList, ticTacToeTable));
-			}else {
-				button21.setText("X");
-				if(updateGame()) {
-					GameController.playController(buttonsList, ticTacToeTable);
-				}
-			}
-		}
-	}
-
-	@FXML
-	void button22Event(ActionEvent event) {
-		if(button22.getText() == "") {
-			if(GameController.gameMode == "twoPlayers") {
-				button22.setText(GameController.playController(buttonsList, ticTacToeTable));
+				button.setText(GameController.playController(buttonsList, ticTacToeTable));
 				updateGame();
 			}else {
-				button22.setText("X");
+				button.setText("X");
 				if(updateGame()) {
 					GameController.playController(buttonsList, ticTacToeTable);
 				}
 			}
-			
 		}
 	}
-
-	@FXML
-	void restartButtonEvent(ActionEvent event) {
-		Main.changeScreen("FXMLGameScreen");
-		loadGame();
-	}
-
+	
 	private void loadGame() {
 		ticTacToeTable = new String [3][3];
 		loadButtonsList();
