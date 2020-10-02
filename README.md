@@ -11,3 +11,6 @@ The second button is for two player mode and the last button is for exiting the 
 
 ## Game screen
 
+The board is made from a set of buttons that when clicked make the moves.
+Some of the characteristics of one player's game mode: the player is the "X" and always starts the game, the artificial intelligence is the "O" and his move is executed after the player's move.
+The characteristics of the two player mode: The first player is always "X" and starts the game, while the second player is "O" and his play is released after the first player's play.
