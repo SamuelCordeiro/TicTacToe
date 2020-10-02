@@ -20,3 +20,9 @@ The characteristics of the two player mode: The first player is always "X" and s
 
 ![TicTacToe - GameScene](https://user-images.githubusercontent.com/40183730/94883164-51b27500-0440-11eb-9517-d421e60ecafb.png)
 
+## End of game screen
+
+If one of the two players wins, the winning streak is colored green and the others are colored red highlighting where the victory was.
+
+In the event of a tie, all fields are colored red. At the end of each game, a warning about the outcome of the game is issued and a reset button is added to the screen.
+
