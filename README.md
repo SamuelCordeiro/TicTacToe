@@ -26,3 +26,4 @@ If one of the two players wins, the winning streak is colored green and the othe
 
 In the event of a tie, all fields are colored red. At the end of each game, a warning about the outcome of the game is issued and a reset button is added to the screen.
 
+![TicTacToe - WonScene](https://user-images.githubusercontent.com/40183730/94883647-912d9100-0441-11eb-9895-e02d476ef308.png)
